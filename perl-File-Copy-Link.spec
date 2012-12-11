@@ -1,20 +1,20 @@
 %define upstream_name    File-Copy-Link
 %define upstream_version 0.112
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	3
 
-Summary:    Reading and resolving symbolic links
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	Reading and resolving symbolic links
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(File::Copy)
-BuildRequires: perl(File::Spec)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(File::Copy)
+BuildRequires:	perl(File::Spec)
+BuildArch:	noarch
 
 %description
 'File::Spec::Link' is an extension to 'File::Spec', adding methods for
@@ -29,25 +29,28 @@ resolving symbolic links; it was created to implement 'File::Copy::Link'.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc META.yml README Changes
+%{perl_vendorlib}/*
+%{_bindir}/copylink
 %{_mandir}/man3/*
-%perl_vendorlib/*
-/usr/bin/copylink
-/usr/share/man/man1/copylink.1.xz
+%{_mandir}/man1/copylink.1.xz
+
+%changelog
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 0.112.0-2mdv2011.0
++ Revision: 656912
+- rebuild for updated spec-helper
+
+* Thu Dec 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 0.112.0-1mdv2011.0
++ Revision: 622194
+- import perl-File-Copy-Link
 
