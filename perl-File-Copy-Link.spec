@@ -1,15 +1,15 @@
 %define upstream_name    File-Copy-Link
-%define upstream_version 0.112
+%define upstream_version 0.113
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%perl_convert_version 0.113
+Release:	1
 
 Summary:	Reading and resolving symbolic links
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/File/File-Copy-Link-0.113.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(File::Copy)
@@ -53,4 +53,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Thu Dec 16 2010 Guillaume Rousse <guillomovitch@mandriva.org> 0.112.0-1mdv2011.0
 + Revision: 622194
 - import perl-File-Copy-Link
+
 
