@@ -3,7 +3,7 @@
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version 0.113
-Release:	2
+Release:	3
 
 Summary:	Reading and resolving symbolic links
 License:	GPL+ or Artistic
