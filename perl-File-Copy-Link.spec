@@ -1,15 +1,15 @@
 %define upstream_name    File-Copy-Link
-%define upstream_version 0.113
+%define upstream_version 0.200
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version 0.113
-Release:	3
+Version:	%{upstream_version}
+Release:	1
 
 Summary:	Reading and resolving symbolic links
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/File/File-Copy-Link-0.113.tar.gz
+Url:		https://metacpan.org/dist/File-Copy-Link
+Source0:	https://cpan.metacpan.org/authors/id/R/RM/RMBARKER/File-Copy-Link-0.200.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
