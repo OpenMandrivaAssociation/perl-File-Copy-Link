@@ -1,9 +1,7 @@
 %define upstream_name    File-Copy-Link
-%define upstream_version 0.200
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	1
+Version:	0.200
+Release:	2
 
 Summary:	Reading and resolving symbolic links
 License:	GPL+ or Artistic
@@ -27,7 +25,7 @@ resolving symbolic links; it was created to implement 'File::Copy::Link'.
   resolving that path relative to the directory of '$link'.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
